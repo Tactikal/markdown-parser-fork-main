@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "markdown-parser-fork-main\\lib\\hamcrest-core-1.3.jar",
+        "markdown-parser-fork-main\\lib\\junit-4.13.2.jar"
+    ]
+}
