@@ -172,6 +172,51 @@ public class MarkdownParseTest {
             System.out.println("Error: file not found!");
         }
 
+    } 
+
+    @Test
+    public void testMarkdownParseLabTest1() {
+        Path filePath = Path.of("C:/Users/carol/OneDrive/Documents/GitHub/markdown-parser-fork-main/labtest1.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(3, parsedLinks.size());
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+    
+    @Test
+    public void testMarkdownParseLabTest2() {
+        Path filePath = Path.of("C:/Users/carol/OneDrive/Documents/GitHub/markdown-parser-fork-main/labtest2.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(3, parsedLinks.size());
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
+    }
+
+    @Test
+    public void testMarkdownParseLabTest3() {
+        Path filePath = Path.of("C:/Users/carol/OneDrive/Documents/GitHub/markdown-parser-fork-main/labtest3.md");
+
+        try {
+            String fileContents = Files.readString(filePath);
+            ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
+
+            assertEquals(1, parsedLinks.size());
+        } catch (Exception e) {
+            System.out.println("Error: file not found!");
+        }
+
     }
 
 }
