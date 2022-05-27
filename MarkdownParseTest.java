@@ -177,12 +177,19 @@ public class MarkdownParseTest {
     @Test
     public void testMarkdownParseLabTest1() {
         Path filePath = Path.of("C:/Users/carol/OneDrive/Documents/GitHub/markdown-parser-fork-main/labtest1.md");
+        ArrayList<String> expectedLinks = new ArrayList<>();
+        expectedLinks.add("google.com");
+        expectedLinks.add("google.com");
+        expectedLinks.add("ucsd.edu");
 
         try {
             String fileContents = Files.readString(filePath);
             ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
 
-            assertEquals(3, parsedLinks.size());
+            for (int i = 0; i < parsedLinks.size(); ++i) {
+                assertEquals(expectedLinks.get(i), parsedLinks.get(i));
+            }
+
         } catch (Exception e) {
             System.out.println("Error: file not found!");
         }
@@ -192,12 +199,19 @@ public class MarkdownParseTest {
     @Test
     public void testMarkdownParseLabTest2() {
         Path filePath = Path.of("C:/Users/carol/OneDrive/Documents/GitHub/markdown-parser-fork-main/labtest2.md");
+        ArrayList<String> expectedLinks = new ArrayList<>();
+        expectedLinks.add("a.com");
+        expectedLinks.add("a.com(())");
+        expectedLinks.add("example.com");
 
         try {
             String fileContents = Files.readString(filePath);
             ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
 
-            assertEquals(3, parsedLinks.size());
+            for (int i = 0; i < parsedLinks.size(); ++i) {
+                assertEquals(expectedLinks.get(i), parsedLinks.get(i));
+            }
+
         } catch (Exception e) {
             System.out.println("Error: file not found!");
         }
@@ -207,12 +221,17 @@ public class MarkdownParseTest {
     @Test
     public void testMarkdownParseLabTest3() {
         Path filePath = Path.of("C:/Users/carol/OneDrive/Documents/GitHub/markdown-parser-fork-main/labtest3.md");
+        ArrayList<String> expectedLinks = new ArrayList<>();
+        expectedLinks.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
 
         try {
             String fileContents = Files.readString(filePath);
             ArrayList<String> parsedLinks = MarkdownParse.getLinks(fileContents);
 
-            assertEquals(1, parsedLinks.size());
+            for (int i = 0; i < parsedLinks.size(); ++i) {
+                assertEquals(expectedLinks.get(i), parsedLinks.get(i));
+            }
+            
         } catch (Exception e) {
             System.out.println("Error: file not found!");
         }
